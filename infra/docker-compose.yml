@@ -1,0 +1,31 @@
+# =====================================================================
+# infra/docker-compose.yml
+# =====================================================================
+# services:
+#   api:
+#     build: ../api
+#     ports: ["8000:8000"]
+#     environment:
+#       - DATABASE_URL=postgres://zwk:zwk@db:5432/zwk
+#       - OLLAMA_BASE_URL=http://ollama:11434/v1
+#       - FDC_API_KEY=${FDC_API_KEY}
+#     depends_on: [db, ollama]
+#   web:
+#     build: ../web
+#     ports: ["5173:5173"]
+#   db:
+#     image: postgres:16
+#     environment: [POSTGRES_USER=zwk, POSTGRES_PASSWORD=zwk, POSTGRES_DB=zwk]
+#     volumes: [pgdata:/var/lib/postgresql/data]
+#   qdrant:
+#     image: qdrant/qdrant:latest
+#     volumes: [qdrant:/qdrant/storage]
+#   ollama:
+#     image: ollama/ollama:latest
+#     ports: ["11434:11434"]
+#     volumes: [ollama_models:/root/.ollama]
+#     deploy:
+#       resources:
+#         reservations:
+#           devices: [{driver: nvidia, count: all, capabilities: [gpu]}]
+# volumes: {pgdata: {}, qdrant: {}, ollama_models: {}}
